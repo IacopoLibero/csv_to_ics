@@ -4,7 +4,7 @@ from datetime import datetime
 import pytz
 
 def parse_date(date_str):
-    for fmt in ('%d/%m/%Y %H.%M.%S', '%d/%m/%Y %H:%M:%S'):
+    for fmt in ('%d/%m/%Y %H:%M:%S', '%d/%m/%Y %H:%M:%S'):
         try:
             return datetime.strptime(date_str, fmt)
         except ValueError:
@@ -14,7 +14,7 @@ def parse_date(date_str):
 def csv_to_ics(ics_filename):
     calendar = Calendar()
     timezone = pytz.timezone("Europe/Rome")
-    with open("calendario - Sheet1.csv", newline='') as csvfile:
+    with open("/home/ifts/Desktop/csv_to_ics/marzo.csv", newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             event = Event()
